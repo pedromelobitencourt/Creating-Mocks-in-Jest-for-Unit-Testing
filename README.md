@@ -2,7 +2,7 @@
 
 ## Theoretical Explanation
 
-**Software tests** verify if a program exhibit the waited answers. They can be manual or **automatic**. It's crucial to emphasize that tests show the presence of bugs, but not the absence of them, as stated by Dijkstra
+**Software tests** verify if a program exhibits the waited answers. They can be manual or **automatic**. It's crucial to emphasize that tests show the presence of bugs, but not the absence of them, as stated by Dijkstra
 
 If you want, you can study the subject before practicing. If so, i recommend the [chapter 8](https://engsoftmoderna.info/cap8.html) of the book [Engenharia de Software Moderna](https://engsoftmoderna.info). But unfortunatelly for some, this book is in Portuguese.
 
@@ -46,18 +46,17 @@ test('test description', test function)
 Now we're going to describe the installation process.
 
 1. Fork the repository. For that, click on **Fork** button
-2. Open the terminal of you operational system in the folder that will contain the project and **clone** the repo
+2. Open the terminal of you operational system in the folder that will contain the project and **clone** the repo:
 ```
 git clone https://github.com/<SEU USUÁRIO>/Creating-Mocks-in-Jest-for-Unit-Testing
 ```
 
 3. Install Node.js if you don't have it on this [page](https://nodejs.org/en/download/)
 
-```
-npm install
-```
+4. In a terminal, go to the project's directory and install the required dependencies:
 
 ```
+npm install
 npm i jest ts-jest @types/jest -D
 ```
 
@@ -69,14 +68,33 @@ Describe the usage of the project here.
 
 Make sure that you have the *package.json* file
 
+To run the testing files, you have three options:
+
+With the option below, it will execute the Jest testing framework, which will run your tests and provide you with the test results and any failures.
 ```
 npm run test
 ```
 
+<br>
+
+The option below (*npm run test:silent*) is a variant of *npm run test* with additional options, such as:
+- watchAll: This option makes Jest run in watch mode, where it continuously monitors your project files for changes and re-runs the tests whenever there's a change.
+
+- silent:  This option suppresses most of Jest's console output, making it less verbose.
+
+- noStackTrace: This option disables printing stack traces for test failures, further reducing the verbosity of the output
 ```
 npm run test:silent
 ```
 
+<br>
+
+The option below (*npm run test:coverage*) is also a variant of *npm run test* with additional options, such as:
+- coverage: This option instructs Jest to collect code coverage information during the test run. It generates a code coverage report that shows which parts of your code have been tested and which haven't. This is helpful for assessing the quality of your tests and identifying areas of your code that may need more test coverage
+
+- silent
+
+- noStackTrace
 ```
 npm run test:coverage
 ```
