@@ -23,7 +23,7 @@ describe('description of the test block', function that contains the tests)
 
 ### Test
 
-Thereafter, inside its function, you have to create the tests in the following way
+Thereafter, inside its function, you have to create the tests in the following way:
 
 ```
 it('test description', test function)
@@ -51,6 +51,8 @@ Now we're going to describe the installation process.
 git clone https://github.com/<SEU USUÁRIO>/Creating-Mocks-in-Jest-for-Unit-Testing
 ```
 
+3. Install Node.js if you don't have it on this [page](https://nodejs.org/en/download/)
+
 ```
 npm install
 ```
@@ -63,20 +65,20 @@ npm i jest ts-jest @types/jest -D
 
 Describe the usage of the project here.
 
-```
-npm start
-```
-
-```
-npx jest --init
-```
-
 ## Testing
 
-Describe the testing process here.
+Make sure that you have the *package.json* file
 
 ```
-npx jest
+npm run test
+```
+
+```
+npm run test:silent
+```
+
+```
+npm run test:coverage
 ```
 
 ## Contributing
