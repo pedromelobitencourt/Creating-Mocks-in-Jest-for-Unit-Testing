@@ -14,16 +14,16 @@ First and foremost, It's worth noting that usually if a file is named, for examp
 
 There are some folders on *src* folder. The folder *examples* contains a typescript file (test-jest-assertions.spec.ts) that helps to show how *unit testing with jest* works
 
-### Test blocks
+### Test suites
 
-Firstly, you can create blocks of tests, promoting organization. To create a block of test:
+Firstly, you can create tests suites, promoting organization. A **test suite** is a function that group related tests cases. To create a test suite using Jest, you do the following:
 ```
 describe('description of the test block', function that contains the tests)
 ```
 
 ### Test
 
-Thereafter, inside its function, you have to create the tests in the following way:
+Thereafter, inside its function, you have to define individual tests cases in the following way:
 
 ```
 it('test description', test function)
