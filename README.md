@@ -123,6 +123,8 @@ All things considered, we can understand what ***jest.clearAllMocks()*** is doin
     expect(addSpy).toHaveBeenCalledTimes(1); // The method was called exactly once.
     ```
 
+If you want to know more about ***jest***, you can learn it in this [page](https://jestjs.io/docs/jest-object)
+
 ## Technologies
 
 - Node
@@ -186,6 +188,30 @@ The option below (*npm run test:coverage*) is also a variant of *npm run test* w
 ```
 npm run test:coverage
 ```
+
+### Possible results:
+
+If you run the test, there are two possible results:
+
+All tests passed:
+<p align="center">
+  <img src="readme_screenshots/allTestsPassed.png" width="350" title="all tests passed">
+</p>
+
+At least one test hasn't passed:
+<p align="center">
+  <img src="readme_screenshots/aTestFailed.png" width="350" title="at least a test failed">
+
+  In the terminal output, there will be highlighted with red which test(s) failed, displaying the test suite, test description, expected output, and actual output.
+</p>
+
+<p align="center">
+  <img src="readme_screenshots/terminalOutput.png" width="350" title="terminal output when there is a failed test">
+</p>
+
+It helps finding bugs easily.
+
+
 
 ## Contributing
 
