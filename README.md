@@ -71,6 +71,58 @@ In the context of mocking, you will often encounter terms like:
 
 - **Spy**: A spy is a type of mock that "watches" real objects or functions and records information about their method calls, allowing you to inspect their behavior.
 
+All things considered, we can understand what ***jest.clearAllMocks()*** is doing. It is resetting and clearing any mocks created or used within each test case, ensuring a **clean state** for subsequent tests. Moreover, ***jest.spyOn*** is a function used to created mock spies for tracking the behavior of functions or methods in your code during testing. **Spies** are helpful when you want to monitor whether specific functions have been called, with what arguments and how many times they were invoked
+
+***jest.spyOn*** works in the following way:
+
+1. **Creating a Spy**
+
+    You use *jest.spyOn* to create a spy for a specific object and method.
+    ```
+    jest.spyOn(object, 'methodName');
+    ```
+    - object: The object or module that contains the method you want to spy on
+
+    - methodName: The name of the method you want to spy on
+
+2. **Configuring Spy Behavior**
+
+
+    After creating a spy, you can define its behavior. For example, you can make it return a specific value or throw an exception when called. You can configure the spy like this:
+    ```
+    jest.spyOn(object, 'methodName').mockReturnValue('mockedReturnValue');
+    ```
+
+3. **Using the Spy in Tests**
+
+    You then use the spy in your test cases to monitor the method's behavior. You can call the method as you normally would in your code, and the spy will keep track of these calls.
+
+4. **Assertions**
+
+    In your test, you can make assertions to verify how the spy was used. For example, you can check if the method was called with specific arguments or determine how many times it was invoked. Jest provides various matchers for these assertions, like '*toHaveBeenCalled*', '*toHaveBeenCalledWith*', and '*toHaveBeenCalledTimes*'.
+
+    Here's an exemple of using '*jest.spyOn*':
+    ```
+    // Suppose you have a simple object with a method.
+    const myObject = {
+      add: (a, b) => a + b,
+    };
+
+    // Create a spy for the `add` method.
+    const addSpy = jest.spyOn(myObject, 'add');
+
+    // Configure the spy behavior.
+    addSpy.mockReturnValue(5);
+
+    // Use the spy in a test.
+    const result = myObject.add(2, 3);
+
+    // Assertions
+    expect(result).toBe(5); // The result is the mocked return value.
+    expect(addSpy).toHaveBeenCalledWith(2, 3); // The method was called with the expected arguments.
+    expect(addSpy).toHaveBeenCalledTimes(1); // The method was called exactly once.
+    ```
+
 ## Technologies
 
 - Node
