@@ -283,6 +283,38 @@ The *createSut* function is an implementation of a design pattern, specifically 
 There is only one *describe* function, so there is only ONE **Test Suite**. This suite contains test cases related to the *order.ts* file. For this reason, its description is: ***Order***. Inside of it, there are five **test cases** (each *it* function is one test case).
 Inside each test case, there is, at least, one **test**, represented with *expect* function
 
+<br>
+
+**Analysing *should not checkout if cart is empty* test case:**
+
+Let's analyse the following code:
+
+```
+it('should not checkout if cart is empty', () => {
+    const { sut, shoppingCartMock } = createSut();
+    const shoppingCartMockSpy = jest
+      .spyOn(shoppingCartMock, 'isEmpty')
+      .mockReturnValueOnce(true);
+    sut.checkout();
+    expect(shoppingCartMockSpy).toHaveBeenCalledTimes(1);
+    expect(sut.orderStatus).toBe('open');
+  });
+```
+
+- It spies on the *isEmpty* method of the *shoppingCartMock* object. Spying means it's monitoring that method to see if and how it's called during the test.
+
+- With *mockReturnValueOnce(true)*, it specifies that when *isEmpty* is called, it should return true just this one time. This is a way to control the behavior of the *shoppingCartMock* during the test.
+
+- The *sut.checkout()* method is called, which is the action being tested.
+
+- Two expectations (assertions) are made:
+  - *expect(shoppingCartMockSpy).toHaveBeenCalledTimes(1)* checks if the *isEmpty* method was called exactly once. This verifies that the checkout method indeed relied on this *isEmpty* method.
+
+- *expect(sut.orderStatus).toBe('open')* checks if the *orderStatus* property of sut is 'open'. This is an additional expectation to make sure that after calling checkout, the order status is not changed (it remains 'open').
+
+
+<br>
+
 ## Technologies
 
 - Node
