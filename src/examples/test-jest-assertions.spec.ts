@@ -29,14 +29,14 @@ describe('Primitive values', () => {
 
 describe('Objects', () => {
   it('should test jest assertions with objects', () => {
-    const person = { name: 'Luiz', age: 30 };
+    const person = { name: 'Pedro', age: 21 };
     const anotherPerson = { ...person };
 
     expect(person).toEqual(anotherPerson);
     expect(person).toHaveProperty('age');
     expect(person).not.toHaveProperty('lastName');
-    expect(person).toHaveProperty('age', 30);
+    expect(person).toHaveProperty('age', 21);
 
-    expect(person.name).toBe('Luiz');
+    expect(person.name).toBe('Pedro');
   });
 });
