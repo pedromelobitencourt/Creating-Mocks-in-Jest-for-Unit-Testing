@@ -215,7 +215,45 @@ It helps finding bugs easily.
 
 ## Contributing
 
-Details about how to contribute to the project.
+We welcome contributions from the community to improve and expand this project. Whether you want to report a bug, suggest an enhancement, or submit your own code changes, please follow the guidelines below to make the process smooth and efficient.
+
+### Reporting Issues
+
+If you encounter a bug, have a feature request, or want to discuss something related to the project, please feel free to [open an issue](https://github.com/pedromelobitencourt/Creating-Mocks-in-Jest-for-Unit-Testing). When reporting an issue, be sure to include the following information:
+
+1. A clear and descriptive title.
+2. A detailed description of the issue or feature request.
+3. Steps to reproduce the issue, if applicable.
+4. Information about your environment (e.g., operating system, version of the project, relevant dependencies).
+5. Screenshots, if they can help in understanding the issue.
+
+### Making Code Contributions
+
+If you want to contribute code to the project, please follow these steps:
+
+1. Fork this repository to your own GitHub account
+2. Clone your forked repository to your local development environment
+
+```
+git clone https://github.com/pedromelobitencourt/Creating-Mocks-in-Jest-for-Unit-Testing
+```
+
+3. Create a new branch for your changes
+```
+git checkout -b feature/your-feature
+```
+
+4. Make your changes and commit them with descriptive messages
+```
+git commit -m "Add new feature"
+```
+
+5. Push your changes to your forked repository
+```
+git push origin feature/your-feature
+```
+
+6. Open a pull request to the main repository. Be sure to provide a clear and concise description of your changes.
 
 ## License
 
