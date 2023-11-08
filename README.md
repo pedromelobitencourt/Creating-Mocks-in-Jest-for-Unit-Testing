@@ -35,6 +35,42 @@ it('test description', test function)
 test('test description', test function)
 ```
 
+Inside each test, there is, at least, one *expect* function to test a value. There are a lot of tests that can be done, so we're going to show the most important ones.
+
+```
+const number = 10;
+expect(number).toBe(10);
+expect(number).toEqual(10);
+```
+
+The above example tests if the variable *number* is equal to 10. The opposite could be done with:
+```
+expect(number).not.toBe(10);
+expect(number).not.toEqual(10);
+```
+
+To verify if an object has a property, we can do the following:
+```
+expect(obj).toHaveProperty('property');
+```
+
+Furthermore, we can check if the object has a property and if its property has a certain value:
+
+```
+expect(obj).toHaveProperty('property', value);
+```
+
+Now, that you know all of this, it's important to point out what **Mocks** are.
+
+**Mocks** are fake objects, functions or modules that mimic the behavior of real components, allowing you to isolate and test specific parts of your code without relying on or affecting external dependencies. Mocks are commonly used in unit testing to create controlled environments for testing individual units of code, such as functions or methods.
+
+In the context of mocking, you will often encounter terms like:
+- **Stub**: It is a type of mock that provides predefined responses to method calls, but it does not verify whether the methods are called or not
+
+- **Mock**: A mock, in the stricter sense, is a mock object that both provides predefined responses and verifies whether specific methods are called during the test
+
+- **Spy**: A spy is a type of mock that "watches" real objects or functions and records information about their method calls, allowing you to inspect their behavior.
+
 ## Technologies
 
 - Node
