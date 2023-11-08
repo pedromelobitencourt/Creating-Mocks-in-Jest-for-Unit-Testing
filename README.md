@@ -340,10 +340,6 @@ npm install
 npm i jest ts-jest @types/jest -D
 ```
 
-## Usage
-
-Describe the usage of the project here.
-
 ## Testing
 
 Make sure that you have the *package.json* file
