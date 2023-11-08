@@ -206,7 +206,7 @@ At least one test hasn't passed:
 </p>
 
 <p align="center">
-  <img src="readme_screenshots/terminalOutput.png" width="350" title="terminal output when there is a failed test">
+  <img src="readme_screenshots/terminalOutput.png" width="650" title="terminal output when there is a failed test">
 </p>
 
 It helps finding bugs easily.
