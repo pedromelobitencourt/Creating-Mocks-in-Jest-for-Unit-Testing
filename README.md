@@ -125,6 +125,8 @@ All things considered, we can understand what ***jest.clearAllMocks()*** is doin
 
 If you want to know more about ***jest***, you can learn it in this [page](https://jestjs.io/docs/jest-object)
 
+In case you now understand what unit testing with Jest is, practice, as it's the best way to learn. There are TypeScript codes for you to study and practice unit testing with jest
+
 ## Technologies
 
 - Node
