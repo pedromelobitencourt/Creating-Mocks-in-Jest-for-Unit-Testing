@@ -2,11 +2,121 @@
 
 ## Theoretical Explanation
 
+
+### Introduction
+
 **Software tests** verify if a program exhibits the waited answers. They can be manual or **automatic**. It's crucial to emphasize that tests show the presence of bugs, but not the absence of them, as stated by Dijkstra
 
 If you want, you can study the subject before practicing. If so, i recommend the [chapter 8](https://engsoftmoderna.info/cap8.html) of the book [Engenharia de Software Moderna](https://engsoftmoderna.info). But unfortunatelly for some, this book is in Portuguese.
 
 Our objective is to allow that the student have a first contact with **Jest's mocks for unit testing**
+
+Before practice, we are going to explain a little bit more about software tests.
+
+Tests can be divided into three groups:
+
+- **Unit tests** verify automatically small parts of a code. The majority of tests are unit ones, because they are simple, easy to implement and it is quick to execute
+
+- **Integration tests** or **service tests** check if a complete function or transaction of a system. Thereafter, they are a test type that uses a lot of classes of distinct packages. This test type usually demands more effort and execute slower than the unit test
+
+- **System tests** simulate, as faithfully as possible, a real user's session using the system. Since they are end-to-end tests, they are more expensive, slower, and less numerous. Interface tests are often fragile as well, meaning that even minor changes to interface components may require modifications to these tests.
+
+It is said that code has a defect—or a **bug**, in a more informal sense—when it does not conform to its specification. If defective code is executed and causes the program to produce an incorrect result or behavior, we say that a **failure** has occurred.
+
+### Unit tests
+
+**Unit tests** are automated tests of small units of code, typically classes, which are tested in isolation from the rest of the system. A unit test is a program that calls methods of a class and checks if they return the expected results. Thus, when using unit tests, the code of a system can be divided into two groups: a set of classes that implement the system's requirements and a set of tests.
+
+Next, there will be some definitions:
+
+- **Test**: A method that implements a test. It is also referred to as test method
+
+- **Test Cases**: A class containing test methods
+
+- **Test Suite**: A collection of test cases that are executed by the unit testing framework (which in our case is *Jest*).
+
+- **System Under Test (SUT)**: The system being tested. It is a generic term also used in other types of testing, not necessarily unit testing. Sometimes the term production code is also used, referring to the code that will be executed by the system's clients."
+
+<br>
+
+**When should I write unit tests?**
+
+- After implementing a small functionality
+
+- Alternatively, you could write unit tests before implementing any production code
+
+- For example, when a user reports a bug, you can start the analysis by writing a test that reproduces the bug, and, as a result, it will fail.
+
+- You can also write tests when you are debugging a piece of code.
+
+- What is NOT advisable is to postpone the implementation of all tests until the system is completed, as was the case, for example, in Waterfall development.
+
+<br>
+
+**What are the pros of using unit tests?**
+
+- The main benefit of unit tests is to find bugs during the development phase, before the code goes into production when the costs of correction and potential losses can be higher.
+
+- First, unit tests serve as a safety net against code regressions.
+  - We say that a regression occurs when a change made to a system's code—whether to fix a bug, implement a new feature, or perform a refactoring—ends up introducing a bug or a similar issue into the code.
+
+- Unit tests also assist in documenting and specifying production code. Therefore, often, when a developer needs to work with code they are not familiar with, they begin by examining its tests.
+
+
+### Principles and Bad Smells
+
+Unit tests should satisfy the following properties (whose initials give rise to the word FIRST in English):
+
+- **Fast**: Developers should run unit tests frequently to obtain quick feedback on bugs and code regressions.
+  - Therefore, it is important that they are executed quickly, in a matter of milliseconds.
+
+  - If that's not possible, you can split a test suite into two groups: tests that run quickly and will therefore be called frequently, and more time-consuming tests that might, for example, be run once a day.
+
+- **Independent**: The execution order of unit tests is not important.
+  - For any tests T1 and T2, the execution of T1 followed by T2 should yield the same result as the execution of T2 followed by T1.
+
+  - It can also happen that T1 and T2 are executed concurrently.
+
+  - For tests to be independent, T1 should not alter any part of the global state of the system that will later be used to compute the result of T2, and vice versa.
+
+- **Repeatable**: Unit tests should always yield the same result.
+  - In other words, if a test T is called n times, the result should be the same in all n executions. That is, either T passes in all executions, or it always fails.
+
+  - Tests with non-deterministic results are referred to as **Flaky Tests** (or **Erratic Tests**). Concurrency is one of the primary factors responsible for *flaky* behavior.
+
+- **Self-checking**: The result of a unit test should be easily verifiable.
+  - To interpret the test result, the developer should not, for example, have to open and analyze an output file or provide data manually.
+
+  - Instead, the test results should be binary and displayed within the IDE, typically through components that are either green (indicating that all tests have passed) or red (indicating that some test has failed).
+
+- **Timely**: The test can be written even before than the code that will be tested
+
+<br>
+
+There are some **Test Smells** that we should avoid, such as:
+
+- **Obscure Test**: An obscure test is a lengthy, complex, and hard-to understand test. As we mentioned, tests should also serve as documentation for the System Under Test. Therefore, it's crucial that they have clear and easily comprehensible logic. Ideally, a test should, for instance, verify a single requirement of the System Under Test
+
+- **Conditional Logic in Tests**: Tests with conditional logic include code that may or may not be executed. In other words, they are tests with if statements or loops, whereas it's preferred that unit tests are linear. Conditional logic in tests is considered a code smell because it hinders test comprehension.
+
+- **Code Duplication in Tests**: As the name suggests, code duplication in tests occurs when the same code is repeated in multiple test methods.
+
+### Mocks
+
+Now, that you know all of this, it's important to point out what **Mocks** are.
+
+**Mocks** are fake objects, functions or modules that mimic the behavior of real components, allowing you to isolate and test specific parts of your code without relying on or affecting external dependencies. Mocks are commonly used in unit testing to create controlled environments for testing individual units of code, such as functions or methods. Using mocks permits that we can create a unit test without accessing a remote service, for example.
+
+In most cases, you set up a mock to provide predetermined responses or behavior that are simple and predictable. For example, a mock might always return a specific value, throw an exception, or log a message when it's called. These simple behaviors are defined by you, the developer, to simulate the expected interaction with the real component, making it easier to test the code that uses the component.
+
+While mocks are usually simple, they can also be configured to have more complex behaviors if needed. However, the primary goal is to keep them as simple as possible to ensure the test's focus remains on the code being tested and not on the intricacies of the mocked component.
+
+In the context of mocking, you will often encounter terms like:
+- **Stub**: It is a type of mock that provides predefined responses to method calls, but it does not verify whether the methods are called or not
+
+- **Mock**: A mock, in the stricter sense, is a mock object that both provides predefined responses and verifies whether specific methods are called during the test
+
+- **Spy**: A spy is a type of mock that "watches" real objects or functions and records information about their method calls, allowing you to inspect their behavior.
 
 ## Practical Explanation
 
@@ -59,17 +169,6 @@ Furthermore, we can check if the object has a property and if its property has a
 ```
 expect(obj).toHaveProperty('property', value);
 ```
-
-Now, that you know all of this, it's important to point out what **Mocks** are.
-
-**Mocks** are fake objects, functions or modules that mimic the behavior of real components, allowing you to isolate and test specific parts of your code without relying on or affecting external dependencies. Mocks are commonly used in unit testing to create controlled environments for testing individual units of code, such as functions or methods.
-
-In the context of mocking, you will often encounter terms like:
-- **Stub**: It is a type of mock that provides predefined responses to method calls, but it does not verify whether the methods are called or not
-
-- **Mock**: A mock, in the stricter sense, is a mock object that both provides predefined responses and verifies whether specific methods are called during the test
-
-- **Spy**: A spy is a type of mock that "watches" real objects or functions and records information about their method calls, allowing you to inspect their behavior.
 
 All things considered, we can understand what ***jest.clearAllMocks()*** is doing. It is resetting and clearing any mocks created or used within each test case, ensuring a **clean state** for subsequent tests. Moreover, ***jest.spyOn*** is a function used to created mock spies for tracking the behavior of functions or methods in your code during testing. **Spies** are helpful when you want to monitor whether specific functions have been called, with what arguments and how many times they were invoked
 
