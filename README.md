@@ -310,7 +310,7 @@ it('should not checkout if cart is empty', () => {
 - Two expectations (assertions) are made:
   - *expect(shoppingCartMockSpy).toHaveBeenCalledTimes(1)* checks if the *isEmpty* method was called exactly once. This verifies that the checkout method indeed relied on this *isEmpty* method.
 
-- *expect(sut.orderStatus).toBe('open')* checks if the *orderStatus* property of sut is 'open'. This is an additional expectation to make sure that after calling checkout, the order status is not changed (it remains 'open').
+  - *expect(sut.orderStatus).toBe('open')* checks if the *orderStatus* property of sut is 'open'. This is an additional expectation to make sure that after calling checkout, the order status is not changed (it remains 'open').
 
 
 <br>
