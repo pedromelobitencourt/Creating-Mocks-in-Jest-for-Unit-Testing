@@ -225,6 +225,63 @@ All things considered, we can understand what ***jest.clearAllMocks()*** is doin
 If you want to know more about ***jest***, you can learn it in this [page](https://jestjs.io/docs/jest-object)
 
 In case you now understand what unit testing with Jest is, practice, as it's the best way to learn. There are TypeScript codes for you to study and practice unit testing with jest
+<br>
+
+### *order.spec.ts* explanation
+
+Now, we're going to explain the test made for *order.ts* file.
+
+The *ShoppingCartMock* class is a mock, so, like it was said before, it mimics the behavior of a real object and provides predetermined responses that are simple and predictable. The same can be said about *CustumerMock*, *MessagingMock* and *PersistencyMock* classes.
+
+- The *ShoppingCartMock* mimics *ShoppingCart* object (that's why it has to implement *ShoppingCartProtocol* interface)
+
+- The *ShoppingCartMock total* method just returns a predetermined and predictable answer, making it easier to test
+
+```
+class ShoppingCartMock implements ShoppingCartProtocol {
+  get items(): Readonly<CartItem[]> {
+    return [];
+  }
+  addItem(item: CartItem): void {}
+  removeItem(index: number): void {}
+  total(): number {
+    return 1;
+  }
+  totalWithDicount(): number {
+    return 2;
+  }
+  isEmpty(): boolean {
+    return false;
+  }
+  clear(): void {}
+}
+
+class MessagingMock implements MessagingProtocol {
+  sendMessage() {}
+}
+
+class PersistencyMock implements PersistencyProtocol {
+  saveOrder() {}
+}
+
+class CustomerMock implements CustomerOrder {
+  getName() {
+    return '';
+  }
+  getIDN() {
+    return '';
+  }
+}
+```
+
+<br>
+
+The *createSut* function is an implementation of a design pattern, specifically the **Factory Method** pattern.
+
+<br>
+
+There is only one *describe* function, so there is only ONE **Test Suite**. This suite contains test cases related to the *order.ts* file. For this reason, its description is: ***Order***. Inside of it, there are five **test cases** (each *it* function is one test case).
+Inside each test case, there is, at least, one **test**, represented with *expect* function
 
 ## Technologies
 
