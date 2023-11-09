@@ -444,9 +444,9 @@ git push origin feature/your-feature
 ## License
 
 This script and code were created by the group consisting of:
-- Lucas Rafael Alves de Souza
-- Pedro Vitor Melo Bitencourt
-- Rafael Pereira Duarte
-- Sérgio Henrique Mendes de Assis
+- Lucas Rafael Alves de Souza (20213002117)
+- Pedro Vitor Melo Bitencourt (20213001540)
+- Rafael Pereira Duarte (20213005146)
+- Sérgio Henrique Mendes de Assis (20213005182)
 
  We are undergraduate students in the Computer Engineering program at CEFET-MG. This script and code are part of a software engineering laboratory assignment for the class of 2023/2. Both the code and the script are under the MIT license.
