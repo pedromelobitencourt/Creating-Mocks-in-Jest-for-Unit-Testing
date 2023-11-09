@@ -5,9 +5,9 @@ export async function fetchUserData(
   readFileFn: (filePath: string, encoding: string) => Promise<string>
 ): Promise<any> {
   try {
-    const conteudoArquivo = await readFileFn('../static/pessoas.json', 'utf-8');
-    const objetoJson = JSON.parse(conteudoArquivo);
-    return objetoJson;
+    const fileContent = await readFileFn('../static/pessoas.json', 'utf-8');
+    const jsonObj = JSON.parse(fileContent);
+    return jsonObj;
   } catch (error) {
     throw error;
   }
