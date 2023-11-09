@@ -1,6 +1,5 @@
 // api.test.js
 import { fetchUserData } from './exercise';
-import * as fs from 'fs/promises';
 
 // Mock axios para simular chamadas de API
 jest.mock('axios');
