@@ -398,6 +398,20 @@ At least one test hasn't passed:
 It helps finding bugs easily.
 
 
+## Practical Exercise
+
+In the **exercise.ts** file, in the "exercise" folder, there is a program that reads JSON objects of type person, containing name, email, salary, among others. Your **goal** is to create two unit tests using an async function to mock the actual reading of the file by the fetchUserData function.
+
+- **Tip**: use the Async syntax to create a function that returns a promise
+
+The first test should focus on verifying whether the "fetchUserData" function correctly returns the user data. Ensure that the function can accurately retrieve the expected user details.
+
+The second test should be dedicated to handling potential errors when making an API call within the "fetchUserData" function. This test should address scenarios where the API call might fail, and you should confirm that the function handles such errors gracefully.
+
+In both cases, use appropriate testing techniques and tools to ensure the reliability and robustness of the "fetchUserData" function. Additionally, make use of asynchronous testing methods to handle promises and asynchronous operations effectively.
+
+After attempting and not succeeding, please check the answer within the '**answer**' folder in the 'exercise' directory.
+
 
 ## Contributing
 
