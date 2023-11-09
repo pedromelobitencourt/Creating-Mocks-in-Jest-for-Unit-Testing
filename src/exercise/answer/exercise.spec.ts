@@ -1,5 +1,5 @@
 // api.test.js
-import { fetchUserData } from './exercise';
+import { fetchUserData } from '../exercise';
 
 describe('fetchUserData', () => {
   it('deve retornar os dados do usuário corretos', async () => {
