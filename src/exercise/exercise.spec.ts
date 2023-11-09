@@ -1,9 +1,6 @@
 // api.test.js
 import { fetchUserData } from './exercise';
 
-// Mock axios para simular chamadas de API
-jest.mock('axios');
-
 describe('fetchUserData', () => {
   it('deve retornar os dados do usuário corretos', async () => {
     // Função de leitura de arquivo simulada para os testes
